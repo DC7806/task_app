@@ -1,0 +1,23 @@
+<h1>任務列表</h1>
+<%= link_to '新增', new_task_path %>
+
+<table>
+  <thead>
+    <tr>
+      <%= content_tag :td, '標題' %>
+      <%= content_tag :td, '內容' %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+    <tr>
+      <td ><%= task.title %></td>
+      <td ><%= task.description %></td>
+      <td >
+        <%= link_to '編輯', edit_task_path(task) %> 
+        <%= link_to '刪除',task_path(task), method: "delete", data: { confirm: '確定？' } %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
