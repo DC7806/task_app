@@ -15,8 +15,9 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to tasks_path, notice: t('crud.create_success', resource: Task.model_name.human)
     else
-      render :new
       flash[:alert] = t('crud.create_fail')
+      flash[:errors] = @task.errors.full_messages.join(', ')
+      render :new
     end
   end
 
@@ -29,6 +30,7 @@ class TasksController < ApplicationController
     else
       render :edit
       flash[:alert] = t('crud.update_fail')
+      flash[:errors] = @task.errors.full_messages.join(', ')
     end
   end 
 

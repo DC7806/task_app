@@ -35,4 +35,12 @@ RSpec.feature "TaskCruds", type: :feature do
 
   end
 
+  describe '步驟12' do
+    it '在頁面上加入驗證的錯誤訊息' do
+      visit new_task_path
+      click_button I18n.t('buttons.submit')
+      expect(page).to have_content(I18n.t('activerecord.errors.messages.blank'))
+    end
+  end
+
 end
