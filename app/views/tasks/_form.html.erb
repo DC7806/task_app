@@ -1,6 +1,8 @@
 <%= form_for task do |f| %>
+  <%= f.label :title %>
   <%= f.text_field :title %>
+  <%= f.label :description %>
   <%= f.text_area :description %>
-  <%= f.submit '確認送出'%>
-  <%= link_to '取消', tasks_path%>
+  <%= f.submit t('buttons.submit') %>
+  <%= link_to t('buttons.cancel'), tasks_path %>
 <% end %>

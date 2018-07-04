@@ -12,9 +12,9 @@ RSpec.feature "TaskCruds", type: :feature do
       visit new_task_path
       fill_in 'task_title', with: 'hello'
       fill_in 'task_description', with: 'again'
-      expect { click_button '確認送出' }.to change(Task, :count).by(1)
+      expect { click_button I18n.t('buttons.submit') }.to change(Task, :count).by(1)
       expect(current_path).to eq tasks_path
-      expect(page).to have_content('新增成功')
+      expect(page).to have_content(I18n.t('crud.create_success', resource: Task.model_name.human))
       expect(page).to have_content('hello', 'again')
     end
 
@@ -22,15 +22,15 @@ RSpec.feature "TaskCruds", type: :feature do
       visit edit_task_path(@first_task)
       fill_in 'task_title', with: 'HELLO'
       fill_in 'task_description', with: 'WORLD'
-      click_button('確認送出')
-      expect(page).to have_content('更新成功')
+      click_button(I18n.t('buttons.submit'))
+      expect(page).to have_content(I18n.t('crud.update_success', resource: Task.model_name.human))
       expect(page).to have_content('HELLO', 'WORLD')
     end
 
     it '刪除任務' do
      visit tasks_path
-     expect { click_link '刪除' }.to change(Task, :count).by(-1)
-     expect(page).to have_content('刪除成功')
+     expect { click_link I18n.t('buttons.destroy') }.to change(Task, :count).by(-1)
+     expect(page).to have_content(I18n.t('crud.destroy_success', resource: Task.model_name.human))
     end
 
   end

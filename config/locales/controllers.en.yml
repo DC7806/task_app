@@ -1,0 +1,24 @@
+en:
+  crud:
+    index: List - %{resource}
+    new: Add%{resource}
+    edit: Edit%{resource}
+    destroy: Delete%{resource}
+    create_success: Successfully Added %{resource} 
+    create_fail: Fail To Add
+    update_success: Successfully Updated %{resource}
+    update_fail: Fail To Update
+    destroy_success: Successfully Deleted %{resource}
+    destroy_fail: Fail to delete
+  buttons:
+    new: Add
+    edit: Edit
+    destroy: Delete
+    submit: Submit
+    cancel: Cancel
+    show_all: Show All
+    search: Search
+    log_in: Log In
+    previous: go back
+  message:
+    confirm: Sure?

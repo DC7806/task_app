@@ -1,11 +1,11 @@
-<h1>任務列表</h1>
-<%= link_to '新增', new_task_path %>
+<h1><%= t('crud.index', resource: Task.model_name.human) %></h1>
+<%= link_to t('buttons.new'), new_task_path %>
 
 <table>
   <thead>
     <tr>
-      <%= content_tag :td, '標題' %>
-      <%= content_tag :td, '內容' %>
+      <%= content_tag :td, t('activerecord.attributes.task.title') %>
+      <%= content_tag :td, t('activerecord.attributes.task.description') %>
     </tr>
   </thead>
   <tbody>
@@ -14,8 +14,8 @@
       <td ><%= task.title %></td>
       <td ><%= task.description %></td>
       <td >
-        <%= link_to '編輯', edit_task_path(task) %> 
-        <%= link_to '刪除',task_path(task), method: "delete", data: { confirm: '確定？' } %>
+        <%= link_to t('buttons.edit'), edit_task_path(task) %> 
+        <%= link_to t('buttons.destroy'),task_path(task), method: "delete", data: { confirm: t('message.confirm') } %>
       </td>
     </tr>
     <% end %>
