@@ -1,0 +1,34 @@
+en:
+  activerecord:
+    models:
+      task: task
+      user: user
+      tag: tag
+    attributes:
+      task:
+        title: title
+        description: description
+        end_at: end at
+        task: task
+        priority: priority
+        all_tags: tags
+      task/statuses:
+        pending: pending 
+        ongoing: ongoing
+        finished: finished
+      task/priorities:
+        low: low
+        medium: medium
+        high: high
+      user:
+        user_name: user name
+        email: email
+        password: password
+        password_confirmation: password confirmation
+        is_admin: set as admin
+      tag:
+        name: tag name
+    errors:
+      messages:
+        blank: can't be blank
+        last_admin: don't you kill yourself
