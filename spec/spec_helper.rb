@@ -45,7 +45,8 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
   config.before(:each) do
-    page.driver.header 'Accept-Language', ['en', 'zh-TW']
+    # page.driver.header 'Accept-Language', ['en', 'zh-TW']
+    Capybara.current_session.driver.header('Accept-Language', ['en', 'zh-TW'])
   end
 
 # The settings below are suggested to provide a good initial experience
