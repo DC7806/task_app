@@ -52,6 +52,7 @@ group :development do
   gem 'capistrano', '~> 3.10', '>= 3.10.1'
   gem 'capistrano-rails', '~> 1.3', '>= 1.3.1'
   gem 'capistrano-rbenv', git: 'https://github.com/capistrano/rbenv.git', branch: 'master'
+  gem 'awesome_print', git: 'https://github.com/awesome-print/awesome_print.git', branch: 'master'
 end
 
 group :test do
