@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <td><%= sort_link(@q, :priority, t('activerecord.attributes.task.priority'), default_order: :asc) %></td>
       <td>
         <%= sort_link(@q, :end_at, t('activerecord.attributes.task.end_at'), default_order: :asc) %>
       </td>
@@ -16,6 +17,7 @@
   <tbody>
     <% @tasks.each do |task| %>
     <tr>
+      <td ><%= t("activerecord.attributes.task/priorities.#{task.priority}") %></td>
       <td ><%= task.end_at.strftime('%Y-%m-%d %H:%M') %></td>
       <td ><%= task.status %></td>
       <td ><%= task.title %></td>

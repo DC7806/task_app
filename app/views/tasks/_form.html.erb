@@ -7,6 +7,8 @@
   <%= f.datetime_select :end_at %>
   <%= f.label :status %>
   <%= f.select :status, task_form_collection('statuses'), include_blank: false %>
+  <%= f.label :priority %>
+  <%= f.select :priority, task_form_collection('priorities'), include_blank: false  %>
   <%= f.submit t('buttons.submit') %>
   <%= link_to t('buttons.cancel'), tasks_path %>
 <% end %>
