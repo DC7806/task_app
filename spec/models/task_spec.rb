@@ -32,4 +32,15 @@ RSpec.describe Task, type: :model do
     end
 
   end
+
+  describe '步驟15' do
+    
+    it '資料驗證: 狀態預設為pending' do
+      default_status = Task.create(title: 'title', description: 'desc', end_at: Time.now)
+      expect(default_status).to be_valid
+      expect(default_status.status).to eq 'pending'
+    end
+
+  end
+
 end
