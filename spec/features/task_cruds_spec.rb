@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "TaskCruds", type: :feature do
   
-  before do
-    @first_task = Task.create(title: 'hello', description: 'world')
-  end
+  let!(:first_task) { Task.create(title: 'hello', description: 'world', end_at: Time.now) }
 
   describe '步驟8' do
     
@@ -19,7 +17,7 @@ RSpec.feature "TaskCruds", type: :feature do
     end
 
     it '修改任務' do
-      visit edit_task_path(@first_task)
+      visit edit_task_path(first_task)
       fill_in 'task_title', with: 'HELLO'
       fill_in 'task_description', with: 'WORLD'
       click_button(I18n.t('buttons.submit'))
@@ -28,9 +26,9 @@ RSpec.feature "TaskCruds", type: :feature do
     end
 
     it '刪除任務' do
-     visit tasks_path
-     expect { click_link I18n.t('buttons.destroy') }.to change(Task, :count).by(-1)
-     expect(page).to have_content(I18n.t('crud.destroy_success', resource: Task.model_name.human))
+      visit tasks_path
+      expect { click_link I18n.t('buttons.destroy') }.to change(Task, :count).by(-1)
+      expect(page).to have_content(I18n.t('crud.destroy_success', resource: Task.model_name.human))
     end
 
   end

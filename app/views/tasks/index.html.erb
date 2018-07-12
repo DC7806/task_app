@@ -4,6 +4,9 @@
 <table>
   <thead>
     <tr>
+      <td>
+        <%= sort_by_end_at(t('activerecord.attributes.task.end_at')) %>
+      </td>
       <%= content_tag :td, t('activerecord.attributes.task.title') %>
       <%= content_tag :td, t('activerecord.attributes.task.description') %>
     </tr>
@@ -11,6 +14,7 @@
   <tbody>
     <% @tasks.each do |task| %>
     <tr>
+      <td ><%= task.end_at %></td>
       <td ><%= task.title %></td>
       <td ><%= task.description %></td>
       <td >
