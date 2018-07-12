@@ -3,11 +3,8 @@ class TasksController < ApplicationController
   before_action :find_task, only: [:edit, :update, :destroy]
   
   def index
-    if params[:direction]
-      @tasks = Task.order(end_at: params[:direction].to_sym)
-    else
-      @tasks = Task.order(created_at: :desc)
-    end
+    @q = Task.order(created_at: :desc).ransack(params[:q])
+    @tasks = @q.result(distinct: true)
   end
 
   def new

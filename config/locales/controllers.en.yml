@@ -22,3 +22,7 @@ en:
     previous: go back
   message:
     confirm: Sure?
+  status_sort:
+    by_title: enter task title
+    by_status: select task status
+    by_tag: enter tag name

@@ -22,3 +22,7 @@ zh-TW:
     previous: 上一頁
   message:
     confirm: 確定？
+  status_sort:
+    by_title: 依任務名稱查詢
+    by_status: 依任務狀態查詢
+    by_tag: 依標籤查詢

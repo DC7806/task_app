@@ -1,11 +1,12 @@
 <h1><%= t('crud.index', resource: Task.model_name.human) %></h1>
 <%= link_to t('buttons.new'), new_task_path %>
-
+<%= render 'sort_tasks', q: @q %>
+<%= link_to t('buttons.show_all'), tasks_path%>
 <table>
   <thead>
     <tr>
       <td>
-        <%= sort_by_end_at(t('activerecord.attributes.task.end_at')) %>
+        <%= sort_link(@q, :end_at, t('activerecord.attributes.task.end_at'), default_order: :asc) %>
       </td>
       <%= content_tag :td, t('activerecord.attributes.task.status') %>
       <%= content_tag :td, t('activerecord.attributes.task.title') %>
@@ -15,7 +16,7 @@
   <tbody>
     <% @tasks.each do |task| %>
     <tr>
-      <td ><%= task.end_at %></td>
+      <td ><%= task.end_at.strftime('%Y-%m-%d %H:%M') %></td>
       <td ><%= task.status %></td>
       <td ><%= task.title %></td>
       <td ><%= task.description %></td>
